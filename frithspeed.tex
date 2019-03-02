@@ -31,10 +31,11 @@
 % defining the title and the author
 %\title{\LaTeX{} ePub Template}
 %\title{\textsc{How I Started to Love {\fontfamily{cmr}\selectfont\LaTeX{}}}}
-\title{My Two-line-long Title}
+\title{The rise and fall of Wadborough forest}
 \author{The Author}
 \newcommand{\ISBN}{0-000-00000-2}
 \newcommand{\press}{My very own studio}
+
 
 % custom second title page
 \makeatletter
@@ -143,18 +144,49 @@
 \lipsum[100-104]
 % acknowledgements
 \chapter*{Acknowledgements}
-\lipsum[1-9]
+\lipsum[1-2]
 % table of contents
 \clearpage
 \tableofcontents*
 
-% begin main matter
-\mainmatter
-\chapter{Chapter One}
 
-\lipsum[1-20]
-\chapter{Chapter Two}
-\lipsum[21-40]
+\newenvironment{localsize}[1]
+{%
+	\let\orignewcommand\newcommand
+	\let\newcommand\renewcommand
+	\makeatletter
+	\input{bk#1.clo}%
+	\makeatother
+	\let\newcommand\orignewcommand
+}
+
+% begin main matter
+
+%“The struggle of man against power is the struggle of memory against forgetting”
+
+\mainmatter
+\chapter{Wadborough forest}
+
+The Wadborough forest is a peculiar patch of land. It's the only forest for miles and sticks out in the patchwork of farmlands surrounding the village of Wadborough. The forest was left untouched when the village was first founded many centuries ago and keep as shooting ground. Pheasants was imported and the villagers, to increase their yield, set out to remove their natural predators. \\
+
+Pheasants are clumsy birds and used to roaming the Asian steps undisturbed from predators and had difficulty surviving in the forest of Wadborough. Over the years the villagers drove all major predators out of the region. The red fox was first to as they seem to hunt the pheasants out of sport, killing more than they could eat. The stoat and the mink followed shortly after. The weasels and badgers was hunted to low numbers but kept alive as they mostly ate rodents, which consequently was booming without the predators. \\
+
+Against the will of the Wadborough villagers the bill of wildlife preservation act was past in the county of Worcestershire which holds the legislative power in Wadborough. It contained many paragraphs but no one as stringent as §68.
+
+\begin{localsize}{10}
+\begin{quote}
+'A person shall not hunt game birds such as the Common Pheasant by means of firearm or any form of projectiles unless bread in captivity under permission from state licensed breeder. A person guilty of an offense under this Act shall be liable on summary conviction to a fine not exceeding 5.000 pound sterling.'
+\begin{flushright}- §68 Bill of Wildlife Preservation Act\end{flushright}
+\end{quote} 
+\end{localsize}
+
+Although the villagers did not abide by the law in the first few years after its initial passing, they eventually followed suit after a tens of hefty fines had been past witch, to the amusement of many locals, became known as the great shooting purge of '08.\\
+
+And so it came to be that the forest of Wadborough was free of both man and predator - undisturbed by the natural checks that keeps the order of things.
+
+\chapter{Suppra Terrahm}
+
+Deep underground in the comfort of a burrow	
 \chapter{Chapter Three}
 \lipsum[41-60]
 \chapter{Chapter Four}
@@ -168,6 +200,8 @@
  Hill introduction Man left land
 
  Chipmunk bought birth real estate
+ 
+ Tink
 
  Meets woodpecker start work on the vila
 % hear story about robbery
