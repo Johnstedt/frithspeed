@@ -1,3 +1,13 @@
 Concentrated power is not rendered harmless by the good intentions of those who create it. -friedman
 
 We've tied happiness to guilt. And we've got mankind by the throat.
+
+
+
+WITH RECURSIVE all_my_pupils AS
+(
+  SELECT * FROM employees WHERE name = 'A. Borg'
+  UNION ALL
+  SELECT name FROM employees e INNER JOIN all_my_pupils amp ON amp.name = e.boss
+)
+SELECT * FROM all_my_pupils;

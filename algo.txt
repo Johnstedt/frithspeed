@@ -1,0 +1,52 @@
+
+
+shortest_paths = [ {lower_limit: 0, upper_limit: 10.000, k: 5, m:1000 }, ... ] // sorted by limits
+candidate = {lower_limit: inf, upper_limit: -inf, k: _, m: _}
+
+
+insert_candidate_into_paths(shortest_paths, candidate) {
+	
+	bool inserted = false
+
+	foreach(path : shorest_pahts) {
+
+		x = intersect(path.k, path.m, candidate.k, path.m)
+
+		// outright better, complete replace, no intersection
+		if(candidate.k <= path.k && candidate.m <= path.m ) { 
+			candidate.lower_limit = min(candidate.lower_limit, path.lower_limit)
+			candidate.upper_limit = max(candidate.upper_limit, path.upper_limit)
+			remove(path)
+			inserted ? null : insert(candidate) && inserted = true
+		}
+		// outright better, complete replace, intersection beyond shortest path
+		else if(path.k <= candidate.k && path.upper_limit < x) { 
+			candidate.lower_limit = min(candidate.lower_limit, path.lower_limit) // very unlikely path.lower_limit
+			candidate.upper_limit = max(candidate.upper_limit, path.upper_limit)
+			remove(path)
+			inserted ? null : insert(candidate) && inserted = true
+		}
+		// outright better, complete replace, intersection before shortest path
+		else if(candidate.k <= path.k && x < path.lower_limit) { 
+			candidate.lower_limit = min(candidate.lower_limit, path.lower_limit) // very unlikely path.lower_limit
+			candidate.upper_limit = max(candidate.upper_limit, path.upper_limit)
+			remove(path)
+			inserted ? null : insert(candidate) && inserted = true
+		}
+		// slope comes from below and intersects in middle, must divide
+		else if (candidate.k <= path.k && path.lower_limit < x) { 
+			candidate.lower_limit = min(candidate.lower_limit, path.lower_limit)
+			path.lower_limit = x
+			candidate.upper_limit = x
+			inserted ? null : insert(candidate) && inserted = true // very very unlikely
+			break; // No more can be replaced
+		}
+		// slope comes from above and intersects in middle, must divide
+		else if (path.k <= candidate.k && path.lower_limit < x && x < path.upper_limit) { 
+			candidate.upper_limit = path.upper_limit // very unlikely its final limit
+			path.upper_limit = x
+			candidate.lower_limit = x
+			inserted ? null : insert(candidate) && inserted = true // very very likely
+		}
+	}
+}
