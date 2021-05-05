@@ -11,3 +11,18 @@ WITH RECURSIVE all_my_pupils AS
   SELECT name FROM employees e INNER JOIN all_my_pupils amp ON amp.name = e.boss
 )
 SELECT * FROM all_my_pupils;
+
+
+
+
+
+Jag vet inte riktigt ... jag blir mest bara less på att alla är så korkade. Allt hat, och de motiveringar om varför 'monopoly guy bad' är ju bara tragiskt inkorrekta.
+
+Bagateller som alla verkar vara upprörda över:
+1. Valar kan flytta aktiepriser åt båda håll med sitt kaptial, som med GME nu. Holy skit det är i 99% av fallen en negativ effekt av för mycket kapital - bara kul om man har något personligt mot personen på andra sidan. Warren buffet skulle älska att kunna köpa aktier utan att flytta aktiepriset.
+2. Trade halts, etc. Att aktivt manipulera ett aktiepris är olagligt, även om det såklart är svårt att bevisa. Även när stenrika personer försöker göra det mot varandra slutar det ju fan sällan bra. När ett aktie med rimligt stor market cap sticker iväg 3x utan katalysator leder det alltid till utredning och ibland till mer. Att förvänta sig något annat nu med 100x och massor av folk i klartext erkänner till manipulering är ... jag vet inte.
+3. Robinhood, schwab, etrade och gänget förtjänar all den skit de får. Men de är, som de borde vara, rädda för reglering. De försöker rädda sitt egna skinn, inte någon jävla hedge fond. 
+
+Vad man borde vara upprörd över:
+
+1. 
