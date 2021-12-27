@@ -1,0 +1,75 @@
+\documentclass[paper=a4]{minimal}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+
+\usepackage{pgffor}
+\usepackage{numname}
+
+\newcommand{\babydisp}[1]{%
+  \fontspec{Santakku}{\char"#1}}
+
+\makeatletter
+\newcommand{\babynum}[1]{%
+\numdigits{#1}%
+\ifcase\c@xsm@mctr
+  \or
+  \babydisp{1230B} %10
+  \or
+  \babydisp{1230B}\kern-1.5pt{}\babydisp{1230B} %20 -- unknown?
+  \or
+  \babydisp{1230D} %30
+  \or
+  \babydisp{1240F} %40
+  \or
+  \babydisp{12410} %50
+\fi
+\kern-4pt{}%
+\ifcase\c@ism@mctr
+  \or
+  \babydisp{12079} %1
+  \or
+  \babydisp{1222B} %2
+  \or
+  \babydisp{12408} %3
+  \or
+  \babydisp{120FB} %4
+  \or
+  \babydisp{1240A} %5
+  \or
+  \babydisp{1240B} %6
+  \or
+  \babydisp{1240C} %7
+  \or
+  \babydisp{1240D} %8
+  \or
+  \babydisp{1240E} %9
+\fi
+}
+\makeatother
+
+\begin{document}
+
+%\noindent\foreach \n in {1,...,59}{%
+%\n\quad\babynum{\n}\\
+%}
+
+\begin{minipage}{0.2\textwidth}
+\noindent\foreach \n in {1,...,20}{%
+\n\quad\babynum{\n}\\
+}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\noindent\foreach \n in {21,...,40}{%
+\n\quad\babynum{\n}\\
+}
+\end{minipage}
+\begin{minipage}{0.2\textwidth}
+\noindent\foreach \n in {41,...,190}{%
+\n\quad\babynum{\n}\\
+}
+
+
+\end{minipage} \hfill
+
+\end{document}
