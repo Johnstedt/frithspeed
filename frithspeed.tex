@@ -49,6 +49,23 @@
 
 % custom second title page
 \makeatletter
+
+\let\@chapterfootnote\@empty%
+\newcommand{\chapterfootnote}[1]{\gdef\@chapterfootnote{#1}}%
+\newcommand{\thechapendfootnote}{{%
+		\renewcommand{\thefootnote}{\fnsymbol{footnote}}%
+		\ifx\@empty\@chapterfootnote\else
+		\footnotetext[1]{\@chapterfootnote}%
+		\fi}%
+	\let\@chapterfootnote\@empty}%
+\newcommand{\chapendfootnote}{%
+	\let\oldchapter\chapter%
+	\renewcommand{\chapter}{%
+		\ifnum\value{chapter}<1\else\thechapendfootnote\fi%
+		\oldchapter%
+	}%
+}
+
 \newcommand*\halftitlepage{\begingroup % Misericords, T&H p 153
   \setlength\drop{0.1\textheight}
   \begin{center}
@@ -189,10 +206,8 @@ Third category: This category contains all obscure references. They should be co
 
 Perhaps unnecessary remark 1: the chapter quotes are carefully picked and are all relevant to the chapter's text.
 
-Perhaps unnecessary remark 2: the character names are carefully picked and are all relevant to the story(albeit some more than others).\\
-
+Perhaps unnecessary remark 2: the character names are carefully picked and are all relevant to the story(albeit some more than others).\\[1cm]
 Chapters:\\
-
 1: Intro\\
 2: Build up\\
 3: Build up\\
@@ -206,25 +221,19 @@ Chapters:\\
 11: Neither\\
 12: Pay off\\
 
-Characters:
-
-Introduced Chapter 2:
-
+Characters:\\[1cm]
+Introduced Chapter 2:\\[0.1cm]
 Kraerion,
-Aequitus
-
-Mentioned:
-
+Aequitus\\[0.1cm]
+Mentioned:\\[0.1cm]
 Br'er Rabbit,
 Ongenþeow,
+Pietus,
 Veritas,
-Pietus\\
-
-
+Cinnamon\\[1cm]
+\input{references.tex}
 
 Enjoy!
-
-
 
 
 % acknowledgements
@@ -310,7 +319,8 @@ Enjoy!
 %\renewcommand*{\thepage}{\hexadecimal{page}}
 
 \input{chapter_1_2.tex}
-%\input{chapter_2_2.tex}
+\input{chapter_2_2.tex}
+%\input{chapter_3_2.tex}
 %\input{chapter_6.tex}
 %\input{chapter_9.2.tex}
 %\input{chapter_10.tex}
