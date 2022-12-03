@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 %\usepackage[osf]{Alegreya,AlegreyaSans}
 \usepackage[osf]{ebgaramond}
+\usepackage{graphicx}
 
 %\usepackage[cmintegrals,cmbraces]{newtxmath}
 %\usepackage{ebgaramond-maths}
@@ -12,6 +13,9 @@
 
 \usepackage{pgffor}
 \usepackage{babyloniannum}
+
+
+\usepackage{polyglossia}
 
 % PACKAGE DEFINITION
 % typographical packages
@@ -37,6 +41,11 @@
 \setlrmarginsandblock{0.611in}{1.222in}{*}
 \setulmarginsandblock{0.722in}{1.545in}{*}
 
+\newfontface{\cuneiform}[Scale=MatchUppercase]{Santakku}
+\DeclareTextFontCommand{\textcuneiform}{\cuneiform}
+
+\newcommand{\AN}{\symbol{"1202D}}
+\newcommand{\KA}{\symbol{"12157}}
 
 % defining the title and the author
 %\title{\LaTeX{} ePub Template}
@@ -231,6 +240,13 @@ Ongenþeow,
 Pietus,
 Veritas,
 Cinnamon\\[1cm]
+
+Introduced chapter 3:\\[0.1cm]
+Redrill, Greyhead\\[0.1cm]
+Mentioned:\\[0.1cm]
+unnamed robin, Spinestack
+
+
 \input{references.tex}
 
 Enjoy!
@@ -320,9 +336,11 @@ Enjoy!
 
 \input{chapter_1_2.tex}
 \input{chapter_2_2.tex}
-%\input{chapter_3_2.tex}
+\input{chapter_3_2.tex}
+%\input{chapter_4_2.tex}
 %\input{chapter_6.tex}
 %\input{chapter_9.2.tex}
+%\input{testcuneiform.tex}
 %\input{chapter_10.tex}
 \newpage
 \vspace*{4.3cm}

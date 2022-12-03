@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{fontspec}
+
+\newfontface{\cuneiform}[Scale=MatchUppercase]{Santakku}
+\newfontscript{Sumero-Akkadian~Cuneiform}{xsux} 
+\DeclareTextFontCommand{\textcuneiform}{\cuneiform}
+
+\newcommand{\AN}{\symbol{"1202D}}
+\newcommand{\KA}{\symbol{"12157}}
+
+\newcommand\MA{\symbol{"12220}}
+\newcommand\MAb{\symbol{"12221}}
+\newcommand\MAc{\symbol{"12222}}
+%\newcommand\MA2{\symbol{"12223}}
+\newcommand\MAH{\symbol{"12224}}
+\newcommand\MAR{\symbol{"12225}}
+\newcommand\MASH{\symbol{"12226}}
+%\newcommand\MASH2{\symbol{"12227}
+
+\newcommand\SU{\symbol{"122E2}}
+\newcommand\SUb{\symbol{"122E3}}
+\newcommand\SUD{\symbol{"122E4}}
+%\newcommand\SUD2{\symbol{"122E5}}
+\newcommand\SUHUR{\symbol{"122E6}}
+\newcommand\SUM{\symbol{"122E7}}
+\newcommand\SUMASH{\symbol{"122E8}}
+\newcommand\SUR{\symbol{"122E9}}
+
+\newcommand\LUM{\symbol{"1221D}}
+\newcommand\LUMb{\symbol{"1221E}}
+\newcommand\LUMc{\symbol{"1221F}}
+\newcommand\HELLO{\symbol{"12460}}
+
+
+
+\begin{document}
+
+This is cuneiform \textcuneiform{\AN\KA}.
+
+%This is cuneiform \textcuneiform{ð’€­ð’…—}.
+
+	{
+	\Huge
+	\textcuneiform{\SU\AN\KA}
+}
+
+\textcuneiform{\MA\LUM\HELLO}
+
+\symbol{"12461}
+
+\end{document}
