@@ -11,6 +11,16 @@
 %\usepackage{ebgaramond}
 %\usepackage{garamondlibre}
 
+% HEX num
+\usepackage{fmtcount}
+
+% Mayan num
+\usepackage{mathabx}
+\newcommand\mathbfont{\usefont{U}{mathb}{m}{n}}
+
+% sheet Music
+\usepackage{musixtex}
+
 \usepackage{pgffor}
 \usepackage{babyloniannum}
 
@@ -110,9 +120,6 @@
 % padding with zero
 \renewcommand*\thechapter{\ifnum\value{chapter}<10 \fi \babylonian{chapter}}
 
-\renewcommand*{\thepage}{\footnotesize\babylonian{page}}
-
-
 % chapter title display
 \titleformat
 {\chapter}
@@ -120,7 +127,8 @@
 {\vspace{-2cm}\normalfont\scshape\huge}
 {\HUGE\thechapter\centering}
 {0pt}
-{\vspace{8pt}\centering}[\vspace{22pt}]
+{\vspace{8pt}\centering}[\vspace{22pt}
+{\pagestyle{plain}}]
 
 % typographical settings for the body text
 \setlength{\parskip}{0em}
@@ -161,6 +169,16 @@
 
 % BEGIN THE DOCUMENT
 \begin{document}
+
+% Mayan
+\def\mayaexpansion{%
+	\mayacntc=\mayacnta\mathbfont
+	\ifnum\mayacntc=0 0\else
+	\rotatebox[origin=c]{-90}{%
+		\loop\ifnum\mayacntc>5\advance\mayacntc by -5\repeat
+		\the\mayacntc\mayacntc=\mayacnta
+		\loop\ifnum\mayacntc>5\advance\mayacntc by -5 5\repeat}%
+	\fi}%
 	
 \newenvironment{localsize}[1]
 {%
@@ -192,6 +210,7 @@
 % begin front matter
 \frontmatter
 \pagestyle{mystyle}
+
 % preface
 \chapter*{Preface}
 
@@ -323,12 +342,15 @@ Enjoy!
 %\pagenumbering{hexadecimal}
 %\renewcommand*{\thepage}{\hexadecimal{page}}
 
+% Or how to pursue the stuff of dreams.
+% Or how to get lost in the aggregate.
+
 \input{chapter_1_2.tex}
 \input{chapter_2_2.tex}
 \input{chapter_3_2.tex}
 \input{chapter_4_2.tex}
 \input{chapter_5_2.tex}
-%\input{chapter_6.tex}
+\input{chapter_6_2.tex}
 %\input{chapter_9.2.tex}
 %\input{testcuneiform.tex}
 %\input{chapter_10.tex}
